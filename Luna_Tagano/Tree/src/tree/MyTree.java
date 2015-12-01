@@ -1,6 +1,7 @@
 package tree;
 
 import java.io.BufferedInputStream.*;
+import javax.swing.JOptionPane;
 
 public class MyTree {
     private Nodo a;
@@ -15,13 +16,17 @@ public class MyTree {
         else{
             if (dato == b.valor)
                 return b;
-            else if (dato < b.valor && b.facEquilibrio > -1){
+            else if (b.profundidad == 1 && dato < b.valor && b.facEquilibrio == -1){
+                msgDesequilibrio(dato);
+                return b;
+            }else if (b.profundidad == 1 && dato > b.valor && b.facEquilibrio == 1){
+                msgDesequilibrio(dato);
+                return b;
+            }
+            else if (dato < b.valor){
                 b.izquierdo = insert(dato, b.izquierdo);
             }else if (dato > b.valor){
                 b.derecho = insert (dato, b.derecho);
-            }else{
-                
-                return b;
             }
         }
         b.profundidad = profMax(getProfundidad (b.izquierdo), getProfundidad (b.derecho)) + 1;
@@ -43,7 +48,10 @@ public class MyTree {
         return fEd- fEi;
     }
     
-    
+    private void msgDesequilibrio(int val){
+        JOptionPane.showOptionDialog(null, "El valor ["+val+"] desequilibra el Arbol", "Problemas al insertar",
+                        JOptionPane.INFORMATION_MESSAGE, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{"OK"}, "OK");
+    }
     public void impPost_orden(){
         
     }
