@@ -1,6 +1,6 @@
 package tree;
 
-import java.io.BufferedInputStream.*;
+import java.io.*;
 import javax.swing.JOptionPane;
 
 public class MyTree {
@@ -128,6 +128,30 @@ public class MyTree {
             post +=  "Valor["+b.valor+"]---F.E["+b.facEquilibrio+"]---Pf["+b.profundidad+"]<br>" ;
         }
         return post;
+    }
+    
+    public void guardar(){
+        try{
+            InputStreamReader isr = new InputStreamReader(System.in);
+            BufferedReader br = new BufferedReader(isr);
+            FileWriter fw = new FileWriter("./src/tree/arbol.txt",true);
+            BufferedWriter bw  = new BufferedWriter (fw);
+            PrintWriter pw = new PrintWriter(bw);
+            pw.println(arbolToTxt(a));
+            pw.close();
+        }catch (java.io.IOException ioe){
+            
+        }
+    }
+    String cadena="";
+    private String arbolToTxt(Nodo b){
+        if (b != null){
+            cadena += "Valor["+b.valor+"] ----- Factor de Equilibrio["+b.facEquilibrio+"]"
+                    + " ----- Profundidad["+b.profundidad+"]\n" ;
+            arbolToTxt(b.izquierdo);
+            arbolToTxt(b.derecho);
+        }
+        return cadena;
     }
 }
 
