@@ -16,13 +16,6 @@ public class MyTree {
         else{
             if (dato == b.valor)
                 return b;
-            else if (b.profundidad == 1 && dato < b.valor && b.facEquilibrio == -1){
-                msgDesequilibrio(dato);
-                return b;
-            }else if (b.profundidad == 1 && dato > b.valor && b.facEquilibrio == 1){
-                msgDesequilibrio(dato);
-                return b;
-            }
             else if (dato < b.valor){
                 b.izquierdo = insert(dato, b.izquierdo);
             }else if (dato > b.valor){
@@ -32,6 +25,26 @@ public class MyTree {
         b.profundidad = profMax(getProfundidad (b.izquierdo), getProfundidad (b.derecho)) + 1;
         b.facEquilibrio = getFactorEquilibrio(b.izquierdo, b.derecho);
         System.out.println("Val[" + b.valor + "] Fe["+ b.facEquilibrio+"] Pf["+b.profundidad+"]");
+        if (b.facEquilibrio > 1 || b.facEquilibrio < -1){
+            msgDesequilibrio(dato);
+            System.out.println("El valor [" + dato + "] desequilobra el arbol");
+            borrarNodo(dato, b);
+        }
+        return b;
+    }
+    
+    private Nodo borrarNodo(int val, Nodo b){
+        if (b!= null){
+            if (val == b.valor){
+                System.out.println("Borrado");
+                return null;
+            }
+            else if (val < b.valor)
+                borrarNodo (val, b.izquierdo);
+            else if (val > b.valor)
+                borrarNodo (val, b.derecho);
+            System.out.println("Nodo["+b.valor+"]");
+        }
         return b;
     }
     
@@ -52,6 +65,7 @@ public class MyTree {
         JOptionPane.showOptionDialog(null, "El valor ["+val+"] desequilibra el Arbol", "Problemas al insertar",
                         JOptionPane.INFORMATION_MESSAGE, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{"OK"}, "OK");
     }
+    
     public void impPost_orden(){
         
     }
