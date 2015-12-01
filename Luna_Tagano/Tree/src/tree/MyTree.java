@@ -35,14 +35,29 @@ public class MyTree {
     
     private Nodo borrarNodo(int val, Nodo b){
         if (b!= null){
-            if (val == b.valor){
+            if (val == b.valor && b.izquierdo==null && b.derecho==null){
                 System.out.println("Borrado");
-                return null;
+                b = null;
+                return b;
             }
-            else if (val < b.valor)
-                borrarNodo (val, b.izquierdo);
-            else if (val > b.valor)
-                borrarNodo (val, b.derecho);
+            else if (val < b.valor){
+                if (b.izquierdo.valor == val){
+                    b.izquierdo = null;
+                    b.profundidad = profMax(getProfundidad (b.izquierdo), getProfundidad (b.derecho)) + 1;
+                    b.facEquilibrio = getFactorEquilibrio(b.izquierdo, b.derecho);
+                }
+                else
+                    borrarNodo(val, b.izquierdo);
+            }
+            else if (val > b.valor){
+                if (b.derecho.valor == val){
+                    b.derecho= null;
+                    b.profundidad = profMax(getProfundidad (b.izquierdo), getProfundidad (b.derecho)) + 1;
+                    b.facEquilibrio = getFactorEquilibrio(b.izquierdo, b.derecho);
+                }
+                else
+                    borrarNodo(val, b.derecho);
+            }
             System.out.println("Nodo["+b.valor+"]");
         }
         return b;
@@ -66,15 +81,53 @@ public class MyTree {
                         JOptionPane.INFORMATION_MESSAGE, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{"OK"}, "OK");
     }
     
-    public void impPost_orden(){
-        
+    public String imprimir(int val){
+        String sTree ="null";
+        switch(val){
+            case 0:
+                pre = "<html><body>";
+                sTree = impPre_Orden(a) + "</body></html>";
+                break;
+            case 1:
+                in = "<html><body>";
+                sTree = impIn_Orden(a) + "</body></html>";
+                break;
+            case 2:
+                post = "<html><body>";
+                sTree = impPost_orden(a) + "</body></html>";
+                break;
+        }
+        return sTree;
     }
     
-    public void impIn_Orden(){
-        
+    String pre;
+    public String impPre_Orden(Nodo b){
+        if (b != null){
+            pre += "Valor["+b.valor+"]---F.E["+b.facEquilibrio+"]---Pf["+b.profundidad+"]<br>" ;
+            impPre_Orden(b.izquierdo);
+            impPre_Orden(b.derecho);
+        }
+        return pre;
     }
-    public void impOrden(){
-        
+    
+    String in;
+    public String impIn_Orden(Nodo b){
+        if (b != null){
+            impIn_Orden(b.izquierdo);
+            in += "Valor["+b.valor+"]---F.E["+b.facEquilibrio+"]---Pf["+b.profundidad+"]<br>" ;
+            impIn_Orden(b.derecho);
+        }
+        return in;
+    }
+    
+    String post;
+    public String impPost_orden(Nodo b){
+        if (b != null){
+            impPost_orden(b.izquierdo);
+            impPost_orden(b.derecho);
+            post +=  "Valor["+b.valor+"]---F.E["+b.facEquilibrio+"]---Pf["+b.profundidad+"]<br>" ;
+        }
+        return post;
     }
 }
 
