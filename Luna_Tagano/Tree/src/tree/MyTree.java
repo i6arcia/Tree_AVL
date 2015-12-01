@@ -132,6 +132,11 @@ public class MyTree {
     
     public void guardar(){
         try{
+            String sFile = "./src/tree/arbol.txt";
+            File f = new File(sFile);
+            f.delete();
+            f.createNewFile();
+            
             InputStreamReader isr = new InputStreamReader(System.in);
             BufferedReader br = new BufferedReader(isr);
             FileWriter fw = new FileWriter("./src/tree/arbol.txt",true);
@@ -147,7 +152,7 @@ public class MyTree {
     private String arbolToTxt(Nodo b){
         if (b != null){
             cadena += "Valor["+b.valor+"] ----- Factor de Equilibrio["+b.facEquilibrio+"]"
-                    + " ----- Profundidad["+b.profundidad+"]\n" ;
+                    + " ----- Profundidad["+b.profundidad+"] \n" ;
             arbolToTxt(b.izquierdo);
             arbolToTxt(b.derecho);
         }
