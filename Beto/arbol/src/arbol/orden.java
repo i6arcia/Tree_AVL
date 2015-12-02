@@ -85,19 +85,22 @@ public class orden extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Boton pre orden
+        //Cadena que almacena lo obtenido en el metodo imprimir de la clase tree
         String cadena = a.imprimir(0);
+        //Visualiza la ventan Mostrar.java insertando el contenido del árbol.
         mostrar m = new mostrar(cadena);
         m.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
+//Boton in orden
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String cadena = a.imprimir(1);
         mostrar m = new mostrar(cadena);
         m.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
-
+//Boton post orden
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         String cadena = a.imprimir(2);
         mostrar m = new mostrar(cadena);

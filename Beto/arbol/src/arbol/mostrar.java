@@ -6,7 +6,7 @@ public class mostrar extends javax.swing.JFrame {
     public mostrar() {
         initComponents();
     }
-    
+    //metodo contructor que ingresa la cadena que contiene el árbol
     public mostrar (String cadena){
         initComponents();
         jLabel1.setText(cadena);
@@ -57,7 +57,7 @@ public class mostrar extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//Boton que cierra la ventana
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed

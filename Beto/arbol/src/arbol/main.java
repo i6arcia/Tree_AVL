@@ -91,23 +91,28 @@ public class main extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//Boton Insertar
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        //Solicita el valor a insertar con un mensaje emergente
         String val =JOptionPane.showInputDialog(null, "Nodo", "Agregar", JOptionPane.QUESTION_MESSAGE);
+        //Inserta el valor al árbol
         p.insert(Integer.parseInt(val));
     }//GEN-LAST:event_jButton1ActionPerformed
-
+//Boton mostrar en orden
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //Invoca GUI Oreden.java para seleccionar el tipo de recorrido del árbol
         orden vOrden = new orden(p);
         vOrden.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
-
+//Boton Factor de equilibrio
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //Muestra el factor de equilibrio obtenido de un metodo de la clase tree en un mensaje emergente
         JOptionPane.showMessageDialog(null, "El factor de equilibrio \n"
                 + "de la raiz del árbol es "+ p.facEqRaiz());;
     }//GEN-LAST:event_jButton3ActionPerformed
-
+//Boton guardar
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        //Invoca la creacion del archivo desde la clase archivo
         archivo f = new archivo();
         try {
             f.save(p.getArbol());

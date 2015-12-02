@@ -1,5 +1,5 @@
 package arbol;
-
+//Unidad minima del árbol
 public class Nodo {
     int dato;
     int prof;
