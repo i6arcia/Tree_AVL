@@ -1,3 +1,2 @@
-Valor[5] ----- Factor de Equilibrio[1] ----- Profundidad[1] 
-Valor[10] ----- Factor de Equilibrio[0] ----- Profundidad[0] 
+Valor[5] ----- Factor de Equilibrio[0] ----- Profundidad[0] 
 

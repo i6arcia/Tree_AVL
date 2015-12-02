@@ -153,6 +153,8 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         Tree.miArbol.guardar();
+        JOptionPane.showOptionDialog(null, "Árbol guardado en ./src/tree/arbol.txt", "Guardado",
+                JOptionPane.INFORMATION_MESSAGE, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{"OK"}, "OK");
     }//GEN-LAST:event_jButton3ActionPerformed
 
 
