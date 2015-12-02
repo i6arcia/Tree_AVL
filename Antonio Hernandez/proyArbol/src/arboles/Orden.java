@@ -1,9 +1,19 @@
 package arboles;
 
-public class Orden extends javax.swing.JFrame {
+import javax.swing.JOptionPane;
 
+public class Orden extends javax.swing.JFrame {
+    
+    Arboles a;
+    String cadena;
+    
     public Orden() {
         initComponents();
+    }
+    
+    public Orden(Arboles t){
+        initComponents();
+        this.a = t;
     }
 
 
@@ -25,10 +35,25 @@ public class Orden extends javax.swing.JFrame {
         jLabel1.setText("Mostrar Orden");
 
         jButton1.setText("Pre Orden");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("In Orden");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Post Orden");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Cancelar");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -75,6 +100,24 @@ public class Orden extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        cadena = a.showTree(0);
+        JOptionPane.showMessageDialog(null, cadena);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+        cadena = a.showTree(1);
+        JOptionPane.showMessageDialog(null, cadena);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        cadena = a.showTree(2);
+        JOptionPane.showMessageDialog(null, cadena);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
 
     public static void main(String args[]) {

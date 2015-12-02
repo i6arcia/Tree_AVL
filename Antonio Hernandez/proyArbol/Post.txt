@@ -1,0 +1,2 @@
+NODO 7 _-_ Fac. Equilibrio 0 _-_ Altura0
+NODO 5 _-_ Fac. Equilibrio 1 _-_ Altura1
