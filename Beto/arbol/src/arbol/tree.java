@@ -23,7 +23,7 @@ public class tree {
             }
         }
         p.prof = (profNodo(p.left)> profNodo(p.right) ? profNodo(p.left): profNodo(p.right))+1;
-        p.facE = facEqNodo(p.left, p.right);
+        p.facE = facEqNodo(p);
         if (p.facE > 1 || p.facE < -1){
             JOptionPane.showMessageDialog(null, "El árbol quedaria desiquilibrado \n Nodo no agregado");
             eliminarHoja(d, p);
@@ -34,11 +34,20 @@ public class tree {
     private int profNodo(Nodo p){
         return p == null ? -1 : p.prof;
     }
-    private int facEqNodo(Nodo l, Nodo r){
+    private int facEqNodo(Nodo raiz){
         int fEleft, fEright;
-        fEleft = l == null ? -1 : l.prof;
-        fEright = r == null ? -1 : r.prof;
+        fEleft = raiz.left == null ? -1 : raiz.left.prof;
+        fEright = raiz.right == null ? -1 : raiz.right.prof;
         return fEright- fEleft;
+    }
+    public int facEqRaiz(){
+        if (a!= null){
+            int fEleft, fEright;
+            fEleft = a.left == null ? -1 : a.left.prof;
+            fEright = a.right == null ? -1 : a.right.prof;
+            return fEright- fEleft;
+        }else 
+            return 0;
     }
     private Nodo eliminarHoja (int dato, Nodo p){
         if (p == null)
@@ -53,7 +62,7 @@ public class tree {
                 if (p.left.dato == dato){
                     p.left = null;
                     p.prof = (profNodo(p.left)> profNodo(p.right) ? profNodo(p.left): profNodo(p.right))+1;
-                    p.facE = facEqNodo(p.left, p.right);
+                    p.facE = facEqNodo(p);
                 }
                 else
                     eliminarHoja(dato, p.left);
@@ -62,7 +71,7 @@ public class tree {
                 if (p.right.dato == dato){
                     p.right= null;
                     p.prof = (profNodo(p.left)> profNodo(p.right) ? profNodo(p.left): profNodo(p.right))+1;
-                    p.facE = facEqNodo(p.left, p.right);
+                    p.facE = facEqNodo(p);
                 }
                 else
                     eliminarHoja(dato, p.right);
@@ -83,7 +92,7 @@ public class tree {
             return mostrarOrd(a);
         }else if (val ==2){
             sPost = "<html>";
-            mostrarPost(a);
+            return mostrarPost(a);
         }
         return "";
     }
@@ -116,5 +125,8 @@ public class tree {
             sPost +=  "Dato -> [ "+p.dato+" ]<br>" ;
         }
         return sPost;
+    }
+    public Nodo getArbol (){
+        return a;
     }
 }

@@ -1,13 +1,21 @@
 package arbol;
 
-public class orden extends javax.swing.JFrame {
-    public int valOrden;
+import java.util.Locale;
 
-    public orden() {
+public class orden extends javax.swing.JFrame {
+
+    tree a = new tree();
+    public orden(){
         initComponents();
         this.setLocationRelativeTo(null);
     }
-
+    
+    public orden(tree p){
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.a=p;
+    }
+    
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -76,19 +84,24 @@ public class orden extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    private main m = new main();
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        m.mostrarArbol(0);
+        String cadena = a.imprimir(0);
+        mostrar m = new mostrar(cadena);
+        m.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        m.mostrarArbol(1);
+        String cadena = a.imprimir(1);
+        mostrar m = new mostrar(cadena);
+        m.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        m.mostrarArbol(2);
+        String cadena = a.imprimir(2);
+        mostrar m = new mostrar(cadena);
+        m.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 

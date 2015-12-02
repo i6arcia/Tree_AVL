@@ -1,0 +1,3 @@
+--- DATO-> 5 ----- Factor de equilibrio-> 0 ----- Profundidad -> 1
+--- DATO-> 1 ----- Factor de equilibrio-> 0 ----- Profundidad -> 0
+--- DATO-> 8 ----- Factor de equilibrio-> 0 ----- Profundidad -> 0
