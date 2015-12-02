@@ -96,39 +96,45 @@ public class Inicio extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//Boton Insertar
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String inputCadena;
         int dato;
+        //Con un mensaje emergente pregunta el valor a agregar
         inputCadena= JOptionPane.showInputDialog(null, "¿Qué dato quiere agregar?");
         dato = Integer.parseInt(inputCadena);
+        //Invoca metodo de arbol para agregar nodo
         a.inserta(dato);
         JOptionPane.showMessageDialog(null, "¡Hecho!");
     }//GEN-LAST:event_jButton1ActionPerformed
-
+//menu salir
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
-
+//Boton punto de equilibrio
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
+        //Muestra el punto de equilibrio de la raiz del arbol, desde el metodo de la clase arbol
         int pE = a.puntoDeEquilibrio(a.getNodo());
         JOptionPane.showMessageDialog(null, "El punto de equilibrio de la raiz del árbol es :\n"+pE);
     }//GEN-LAST:event_jButton3ActionPerformed
-
+//Boton mostrar
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         String sArbol;
         int opt;
+        //Con un mensaje emergente pregunta el tipo de recorrido para el arbol
         opt = JOptionPane.showOptionDialog(null, "De que forma quiere hacer el recorrido en el árbol",
                 "Mostrar Orden", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,
                 null, new Object[]{"Pre-Orden", "In-Orden", "Pos-Orden"}, "0");
+        //Se almacena en una cadena el recorrido del arvol segun la opcion seleccionada
         sArbol=a.printPant(opt);
+        //Visualiza la cadena del arbol en la GUI de despliega.java
         despliega des = new despliega(sArbol);
         des.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
-
+//Genera el archivo txt
     private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
         // TODO add your handling code here:
         a.archivo();

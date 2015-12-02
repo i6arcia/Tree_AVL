@@ -7,7 +7,7 @@ public class despliega extends javax.swing.JFrame {
     public despliega() {
         initComponents();
     }
-    
+    //metodo constructor con el contenido del arbol
     public despliega (String cadena){
         initComponents();
         jTextArea1.setText(cadena);
