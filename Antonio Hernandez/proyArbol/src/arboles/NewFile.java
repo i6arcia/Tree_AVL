@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileWriter;
 import javax.swing.JOptionPane;
 
-
+//Genera el archivo txt con el recorrido del arbol en post orden
 public class NewFile {
     String cadena="";
     public void generar(Nodos n){

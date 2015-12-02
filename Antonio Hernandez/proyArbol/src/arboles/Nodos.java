@@ -1,6 +1,6 @@
 package arboles;
 
-
+//Unidad minima del arbol
 public class Nodos {
     
     int dato;

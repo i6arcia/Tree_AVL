@@ -100,19 +100,20 @@ public class Orden extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         this.dispose();
     }//GEN-LAST:event_jButton4ActionPerformed
-
+//Boton pre orden
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         cadena = a.showTree(0);
+        //Con un mensaje emergente muestra el contenido del arbol
         JOptionPane.showMessageDialog(null, cadena);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+//Boton In orden
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         cadena = a.showTree(1);
         JOptionPane.showMessageDialog(null, cadena);
     }//GEN-LAST:event_jButton2ActionPerformed
-
+//Boton post orden
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         cadena = a.showTree(2);

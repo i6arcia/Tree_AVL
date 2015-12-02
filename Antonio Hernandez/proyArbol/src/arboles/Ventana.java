@@ -95,24 +95,24 @@ public class Ventana extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//Boton mostrar orden
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         Orden win = new Orden(arb);
         win.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
-
+//Boton insertar
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         int valorNodo = Integer.parseInt(JOptionPane.showInputDialog(null,"Valor del nodo"));
         arb.insertarNodo(valorNodo);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+//Boton Factor de quilibrio
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         JOptionPane.showMessageDialog(null, "El factor de equilibrio de la raiz del arbol es \n {"+arb.getFactorEquilibrio(arb.getNodo())+"}");
     }//GEN-LAST:event_jButton2ActionPerformed
-
+//Boton guardar archivo txt
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
         NewFile f = new NewFile();
