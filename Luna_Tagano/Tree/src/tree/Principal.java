@@ -3,7 +3,7 @@ package tree;
 import javax.swing.JOptionPane;
 
 public class Principal extends javax.swing.JFrame {
-
+//Metodo constructor
     public Principal() {
         initComponents();
     }
@@ -118,31 +118,42 @@ public class Principal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+//Boton Agregar
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         int valor;
         String val;
+        //Recopila valor a agregar con una ventana emergente
         val= JOptionPane.showInputDialog("Ingrese el valor");
+        //Se convierte a entero el valor recopilado
         valor = Integer.parseInt(val);
+        //Se intenta crear un nuevo nodo
         Tree.miArbol.insertar(valor);
     }//GEN-LAST:event_jButton1ActionPerformed
-
+//Boton Imprimir
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //Cadena que almacenará el arbol
         String arb;
+        //Mensaje emergente de tres opciones que pregunta en que modo quiere que se imprima
+        //Simplemente se remplazaron las opciones Yes, No y Cancel por Pre Por e In orden
         switch(JOptionPane.showOptionDialog(null, "Selecciona la opción deseada",
                 "Imprimir Árbol", JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE,
                 null, new Object[]{"Pre-Orden", "In-Orden", "Pos-Orden"}, "0"))
         {
+            //Si la respuesta fue Pre (0)
             case 0:
+                //Invoca imprimir del archivo MyTree
                 arb = Tree.miArbol.imprimir(0);
+                //Inserta texto en labels
                 jLabel1.setText("Árbol en Pre-Orden");
                 jLabel2.setText(arb);
                 break;
+            //Si la opcin seleccionada fue In (1)
             case 1:
                 arb = Tree.miArbol.imprimir(1);
                 jLabel1.setText("Árbol en Orden");
                 jLabel2.setText(arb);
                 break;
+            //Si la opcion seleccionada fue Post (2)
             case 2:
                 arb = Tree.miArbol.imprimir(2);
                 jLabel1.setText("Árbol en Post-Orden");
@@ -150,9 +161,11 @@ public class Principal extends javax.swing.JFrame {
                 break;
         }
     }//GEN-LAST:event_jButton2ActionPerformed
-
+//Boton Guardar
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        //Invoca metodo guardar del archivo MyTree
         Tree.miArbol.guardar();
+        //Mensaje emergente
         JOptionPane.showOptionDialog(null, "Árbol guardado en ./src/tree/arbol.txt", "Guardado",
                 JOptionPane.INFORMATION_MESSAGE, JOptionPane.INFORMATION_MESSAGE, null, new Object[]{"OK"}, "OK");
     }//GEN-LAST:event_jButton3ActionPerformed
