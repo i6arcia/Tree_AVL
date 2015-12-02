@@ -1,5 +1,8 @@
 package arbol;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
 import javax.swing.JOptionPane;
 
 
@@ -128,34 +131,23 @@ public class Arbol {
         return sArbol;
     }
     
-    /*public void guardar(){
+    public void archivo(){
         try{
-            String sFile = "./src/tree/arbol.txt";
-            File f = new File(sFile);
-            f.delete();
-            f.createNewFile();
-            
-            InputStreamReader isr = new InputStreamReader(System.in);
-            BufferedReader br = new BufferedReader(isr);
-            FileWriter fw = new FileWriter("./src/tree/arbol.txt",true);
-            BufferedWriter bw  = new BufferedWriter (fw);
-            PrintWriter pw = new PrintWriter(bw);
-            pw.println(arbolToTxt(a));
-            pw.close();
+            String ruta = "PostOrden.txt";
+            File f = new File(ruta);
+            BufferedWriter bw;
+            if (f.exists()){
+                bw = new BufferedWriter(new FileWriter(f));
+                bw.write(post_orden(n));
+            }else{
+                bw = new BufferedWriter(new FileWriter(f));
+                bw.write(post_orden(n));
+            }
+            bw.close();
+            JOptionPane.showMessageDialog(null, "Archivo generado");
         }catch (java.io.IOException ioe){
-            
         }
     }
-    String cadena="";
-    private String arbolToTxt(Nodo b){
-        if (b != null){
-            cadena += "Valor["+b.valor+"] ----- Factor de Equilibrio["+b.facEquilibrio+"]"
-                    + " ----- Profundidad["+b.profundidad+"] \n" ;
-            arbolToTxt(b.izquierdo);
-            arbolToTxt(b.derecho);
-        }
-        return cadena;
-    }*/
 }
 
 

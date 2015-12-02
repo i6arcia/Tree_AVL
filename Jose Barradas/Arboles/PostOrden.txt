@@ -1,0 +1,1 @@
+nullNodo[5] | Fac Equil[0] | Altura[0]
